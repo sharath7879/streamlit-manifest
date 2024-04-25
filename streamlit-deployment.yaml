@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: streamlit-deployment
+  namespace: llm-demo
+  labels:
+    app: streamlit
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: streamlit
+  template:
+    metadata:
+      labels:
+        app: streamlit
+    spec:
+      containers:
+        - name: streamlit
+          image: docker.io/sharath7879/llm-stapp:latest
+          ports:
+            - containerPort: 8501
+          resources:
+            requests:
+              cpu: "16"
+              memory: "50Gi"
+            limits:
+              cpu: "16"
+              memory: "50Gi"
+              nvidia.com/gpu: "1"
+          
