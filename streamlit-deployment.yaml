@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: streamlit-deployment
-  namespace: llm-demo
+  namespace: llm-paas
   labels:
     app: streamlit
 spec:
